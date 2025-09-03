@@ -1,4 +1,4 @@
-module github.com/prometheus-community/jiralert
+module github.com/mmikitka-arcticwolf/jiralert
 
 go 1.19
 

@@ -26,9 +26,9 @@ import (
 	"github.com/go-kit/log"
 	"github.com/go-kit/log/level"
 	"github.com/pkg/errors"
-	"github.com/prometheus-community/jiralert/pkg/alertmanager"
-	"github.com/prometheus-community/jiralert/pkg/config"
-	"github.com/prometheus-community/jiralert/pkg/template"
+	"github.com/mmikitka-arcticwolf/jiralert/pkg/alertmanager"
+	"github.com/mmikitka-arcticwolf/jiralert/pkg/config"
+	"github.com/mmikitka-arcticwolf/jiralert/pkg/template"
 	"github.com/trivago/tgo/tcontainer"
 )
 
