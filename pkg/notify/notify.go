@@ -35,7 +35,7 @@ import (
 // TODO(bwplotka): Consider renaming this package to ticketer.
 
 type jiraIssueService interface {
-	Search(jql string, options *jira.SearchOptions) ([]jira.Issue, *jira.Response, error)
+	SearchV2JQL(jql string, options *jira.SearchOptionsV3) ([]jira.Issue, *jira.Response, error)
 	GetTransitions(id string) ([]jira.Transition, *jira.Response, error)
 
 	Create(issue *jira.Issue) (*jira.Issue, *jira.Response, error)
@@ -272,13 +272,13 @@ func toGroupTicketLabel(groupLabels alertmanager.KV, hashJiraLabel bool) string 
 
 func (r *Receiver) search(project, issueLabel string) (*jira.Issue, bool, error) {
 	query := fmt.Sprintf("project=\"%s\" and labels=%q order by resolutiondate desc", project, issueLabel)
-	options := &jira.SearchOptions{
+	options := &jira.SearchOptionsV3{
 		Fields:     []string{"summary", "status", "resolution", "resolutiondate"},
 		MaxResults: 2,
 	}
 
 	level.Debug(r.logger).Log("msg", "search", "query", query, "options", fmt.Sprintf("%+v", options))
-	issues, resp, err := r.client.Search(query, options)
+	issues, resp, err := r.client.SearchV2JQL(query, options)
 	if err != nil {
 		retry, err := handleJiraErrResponse("Issue.Search", resp, err, r.logger)
 		return nil, retry, err
