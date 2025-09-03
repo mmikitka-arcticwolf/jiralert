@@ -14,7 +14,7 @@ package notify
 
 import (
 	"fmt"
-	"github.com/andygrunwald/go-jira"
+	"github.com/mmikitka-arcticwolf/go-jira"
 	"os"
 	"sort"
 	"testing"

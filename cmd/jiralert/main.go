@@ -22,7 +22,7 @@ import (
 	"runtime"
 	"strconv"
 
-	"github.com/andygrunwald/go-jira"
+	"github.com/mmikitka-arcticwolf/go-jira"
 	"github.com/go-kit/log"
 	"github.com/go-kit/log/level"
 	"github.com/prometheus-community/jiralert/pkg/alertmanager"
